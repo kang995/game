@@ -47,3 +47,11 @@ function queryString(nodes){
     }
     return str.substring(0, str.length - 1);
 }
+
+function queryStrings(nodes){
+    var str = '';
+    for(var i = 0; i < nodes.length; i++){
+        str += "score" + "=" + nodes[i].score + "&" + "maxScore" + "=" + nodes[i].maxScore + "&" + "Integral" + "=" + nodes[i].Integral;
+    }
+    return str.substring(0, str.length - 1);
+}
