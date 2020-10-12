@@ -53,11 +53,13 @@
 			margin: 0 auto;
 			top: 25%;
 			display: none;
-            text-align: center;
             border-radius: 20px;
+			padding:30px 10px 10px;
         }
-        .span{
-            line-height: 300px;
+        #add span{
+			display: block;
+			height: 30px;
+            line-height: 30px;
         }
 
 		#overlay {
@@ -193,8 +195,15 @@
 		</div>
     </div>
     <div id ='add'>
-        <span class="span">你好大帅哥</span>
-    </div>
+		<span>1.每天可玩3次。</span>
+		<span>2.积分超过2000分可随机获得积分。</span>
+		<span>3.活动最终解释权归融托优选所有，融托优选将根据市场变化及平台运营变化，不定期对活动规则及奖励进行调整，即时生效。</span>
+		<form action="" id="form" style="padding-top:90px;">
+			<input name="name" value="" type="text">
+			<input name="sex" value="" type="text">
+			<input type="button"  value="提交">
+		</form>
+	</div>
 	<script>
 		// var shareUrl="";
 		// Play68.set_share_url(shareUrl);
@@ -237,8 +246,8 @@
 		window.initGoogle();
 	</script>
 	<script src="game.js"></script>
-
-
+	<script src="js/ajax.js"></script>
+	<script src="js/test.js"></script>
 
 	<script type="text/JavaScript">
 window.shareData={
