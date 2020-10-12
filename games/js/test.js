@@ -8,7 +8,7 @@ window.onload = function(){
             var res = JSON.parse(res); 
             console.log(res.data.total)
         },
-        error:{
+        error:function(){
 
         }
     })
@@ -31,7 +31,7 @@ window.onload = function(){
                 var res = JSON.parse(res); 
                 console.log(res)
             },
-            error:{
+            error:function(){
 
             }
         })
