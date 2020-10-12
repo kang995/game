@@ -13,6 +13,7 @@ window.onload = function(){
         }
     })
 
+    
     //数据请求--提交数据
     var button = document.getElementById('button');
     var arr = [];
