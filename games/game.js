@@ -947,22 +947,36 @@ function game() {
         Music.setMuted(!t), t ? M.play(0, !0) : (_.stop(0), M.stop(0)), Store.set(A, t ? "1" : "0")
     }), Sidebar.addMenuHeader('积分榜'), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "本月积分榜", function (t) {
         // 这里添加本月积分榜的逻辑
-        let obj = {
-            style: {
-                style: 'overlay'
+        var obj = {
+            styles: {
+                style: 'overlay',
+                style1:'add'
             },
             toString() {
-                let div = document.getElementById(this.style.style)
+                var div = document.getElementById(this.styles.style)
                 div.style.display = 'block'
-                console.log(div)
+                var div1 = document.getElementById(this.styles.style1)
+                div1.style.display = 'none'
             }
         }
         obj.toString()
 
     }), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1), "游戏规则", function () {
         // 这里添加游戏规则弹窗
-        let div = document.getElementById('add')
-        div.style.display = 'block'  
+        var obj ={
+            Rules:{
+                style:'overlay',
+                styke1:'add'
+            },
+            toString(){
+                var div = document.getElementById(this.Rules.styke1)
+                div.style.display = 'block'  
+                var div1 = document.getElementById(this.Rules.style)
+                div1.style.display = 'none'
+            }
+            
+        }
+        obj.toString()
     }),
         Sidebar.addMenuHeader("更多"), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "分享", function () {
             //Play68.shareFriend();

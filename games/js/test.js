@@ -12,7 +12,20 @@ window.onload = function(){
 
         }
     })
+    var span = document.querySelector('.spn')
+    ajax({
+        method:"get",
+        url:'http://192.168.44.159:22222/data.json',
+        data:{},
+        success:function(res){
+            var res = JSON.parse(res); 
+            console.log(res)
+            span.innerHTML = res.data.result[0].catName
+        },
+        error:{
 
+        }
+    })
     //数据请求--提交数据
     var button = document.getElementById('button');
     var arr = [];
