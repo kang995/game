@@ -277,7 +277,7 @@ function Sidebar() {
 
 function game() {
     function t(t) {
-        console.log(t)
+        // console.log(t)
         return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
         
     }
@@ -287,9 +287,10 @@ function game() {
     }
 
     function i(t) {
-        console.log('本次得分' + t)
+        console.log("本次得分：",t)
         var i = parseInt(Store.get(E)) || 0,
             r = Math.max(i, t);
+            console.log("最高分：",r)
         return K = r, e(r), G && (parseInt(G.get("highscore")) || 0) < r && (G.set("highscore", r), G.save({}, {
             success: function (t) {
                 console.log("Successfully saved", G.get("highscore"))
@@ -1110,6 +1111,7 @@ function Social() {
     }
     window.showInterstitialAd = function () {
         var t = parseInt(Store.get("playCount")) || 0;
+        console.log("次数：",t+1)
         Store.set("playCount", t + 1), t > 3 && 2 * Math.random() >> 0 == 0 && (window.isAndroid && !window.isSilk && Config.androidInstallBannerURL && Config.androidInstallURL ? (Modal.show(new InstallGameModal(Config.androidInstallBannerURL, Config.androidInstallURL, Sidebar.showIcon)), Sidebar.hideIcon(), window.toggleOverlay(!0)) : window.isiOS && Config.iOSInstallBannerURL && Config.iOSInstallURL && (Modal.show(new InstallGameModal(Config.iOSInstallBannerURL, Config.iOSInstallURL, Sidebar.showIcon)), Sidebar.hideIcon(), window.toggleOverlay(!0)))
     }, window.isKik ? i() : window.isKongregate || e()
 }
