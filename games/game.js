@@ -652,9 +652,9 @@ function game() {
     var O = function () {
         // updateShare(H); 
         // Play68.setRankingScoreDesc(H);
-        window.sendData();//游戏结束后提交数据
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
         var e = this.addButton("再玩一次", function () {
+            window.sendData();//游戏结束后提交数据
             M.stop(0), M.play(0, !0), Modal.hide(function () {
                 y()
             })

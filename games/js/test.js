@@ -42,7 +42,7 @@ window.onload = function(){
             maxScore:maxScore,//最高分
             // Integral:100,//本次获得积分
         }
-        arr.unshift(obj)
+        arr.push(obj)
         ajax({
             method:"post",
             url:'http://192.168.44.159:22222/data.json',
