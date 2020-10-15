@@ -20,6 +20,7 @@ window.onload = function(){
         success:function(res){
             var res = JSON.parse(res); 
             console.log(res)
+            console.log(111)
             span.innerHTML = res.data.result[0].catName
         },
         error:{
