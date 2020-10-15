@@ -277,9 +277,7 @@ function Sidebar() {
 
 function game() {
     function t(t) {
-        // console.log(t)
         return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-        
     }
 
     function e(e) {
@@ -288,6 +286,7 @@ function game() {
 
     function i(t) {
         console.log("本次得分：",t)
+        Store.set("score",t)
         var i = parseInt(Store.get(E)) || 0,
             r = Math.max(i, t);
             console.log("最高分：",r)
@@ -653,6 +652,7 @@ function game() {
     var O = function () {
         // updateShare(H); 
         // Play68.setRankingScoreDesc(H);
+        window.sendData();//游戏结束后提交数据
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
         var e = this.addButton("再玩一次", function () {
             M.stop(0), M.play(0, !0), Modal.hide(function () {
@@ -680,7 +680,7 @@ function game() {
             r.scale.set(1.1 * o, 1.1 * s), new Tween(r.scale, {
                 x: o,
                 y: s
-            }, .3)
+            }, .3)      
         });
         var a = this.addTextBlock("最高分: " + t(Store.get(E) || 0), 60, 200);
         console.log(a)
@@ -856,6 +856,7 @@ function game() {
     });
     var K = 0;
     i(Store.get(E) || 0);
+    // console.log("本场分数", (Store.get(E) || 0))
     for (var q, Q = new Container, J = 150, Z = J / 2, $ = 133, tt = [], et = 9, it = 4, rt = 0; et > rt; rt++) {
         tt[rt] = [];
         for (var nt = Math.abs(it - rt), ot = 0; et - nt > ot; ot++) {
