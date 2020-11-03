@@ -2,7 +2,7 @@ window.onload = function(){
     //请求demo
     ajax({
         method:"get",
-        url:'http://192.168.44.159:22222/data.json',
+        url:'http://192.168.44.198:22222/data.json',
         data:{},
         success:function(res){
             var res = JSON.parse(res); 
@@ -15,7 +15,7 @@ window.onload = function(){
     var span = document.querySelector('.spn')
     ajax({
         method:"get",
-        url:'http://192.168.44.159:22222/data.json',
+        url:'http://192.168.44.198:22222/data.json',
         data:{},
         success:function(res){
             var res = JSON.parse(res); 
@@ -29,7 +29,7 @@ window.onload = function(){
     })
     //数据请求--提交数据
     window.sendData = function sendData(){
-        // console.log("提交数据")
+        console.log("提交数据")
         // var button = document.getElementById('button');
         var arr = [];
         var playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
@@ -45,7 +45,7 @@ window.onload = function(){
         arr.push(obj)
         ajax({
             method:"post",
-            url:'http://192.168.44.159:22222/data.json',
+            url:'http://192.168.44.198:22222/data.json',
             data:queryStrings(arr),
             success:function(res){
                 var res = JSON.parse(res); 
@@ -57,20 +57,6 @@ window.onload = function(){
         })
     }
    
-    // button.addEventListener('click',function(){
-    //     ajax({
-    //         method:"post",
-    //         url:'http://192.168.44.159:22222/data.json',
-    //         data:queryStrings(arr),
-    //         success:function(res){
-    //             var res = JSON.parse(res); 
-    //             console.log(res)
-    //         },
-    //         error:function(){
-
-    //         }
-    //     })
-    // })
 
 
     /* 

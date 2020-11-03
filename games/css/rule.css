@@ -1,0 +1,28 @@
+@charset "utf-8";
+*{
+    box-sizing:border-box;
+}
+body{
+    background: #fafafa;
+}
+html,body{
+    height:100%;
+}
+#add{
+    width: 6.8rem;
+    height: 4.3rem;
+    background-color: #ffffff;
+    position: relative;
+    z-index: 100;
+    margin: 0 auto;
+    top: 25%;
+    display: none;
+    border-radius: 20px;
+    padding:30px 10px 10px;
+}
+#add span{
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.12rem;
+}
