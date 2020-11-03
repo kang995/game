@@ -946,7 +946,7 @@ function game() {
         Sound.setMuted(!t), Store.set(R, t ? "1" : "0")
     }), Music.setMuted(!("0" !== Store.get(A))), Sidebar.addMenuToggle(Sprite.fromSheet(Sidebar.icons, 10), "音乐", !Music.muted, function (t) {
         Music.setMuted(!t), t ? M.play(0, !0) : (_.stop(0), M.stop(0)), Store.set(A, t ? "1" : "0")
-    }), Sidebar.addMenuHeader('积分榜'), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "本月积分榜", function (t) {
+    }), Sidebar.addMenuHeader('排行榜'), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "排行榜", function (t) {
         // 这里添加本月积分榜的逻辑
         var obj = {
             styles: {
