@@ -1,16 +1,14 @@
+
 var obj = {
-    id:'overlay',
     id1:'imgs',
     tyoe:function(){
-        var dom = document.getElementById(this.id)
         var img = document.getElementById(this.id1)
-        this.typeOf(dom,img)
+        img.onclick = this.typeOf
     },
-    typeOf:function(dom,img){
-      img.onclick = function(){
-          dom.style.display = 'none'
-      }
+    typeOf:function(){
+        document.getElementById('overlay').style.display = 'none'
     }
 }
 obj.tyoe();
+
 
