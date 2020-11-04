@@ -981,11 +981,12 @@ function game() {
     //     }
     //     obj.toString()
     // }),
-        Sidebar.addMenuHeader("更多"), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "分享", function () {
-            //Play68.shareFriend();
-        }), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1), "更多游戏", function () {
-            //Play68.goHome();
-        }),
+        // Sidebar.addMenuHeader("更多"), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "分享", function () {
+        //     //Play68.shareFriend();
+        // }),
+        //  Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1), "更多游戏", function () {
+        //     //Play68.goHome();
+        // }),
         // Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 6), "Send Feedback", function() {
         // 		navigate(Config.feedbackURL)
         // 	}), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 9), "Legal", function() {
