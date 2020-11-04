@@ -967,7 +967,7 @@ function game() {
     }), Music.setMuted(!("0" !== Store.get(A))), Sidebar.addMenuToggle(Sprite.fromSheet(Sidebar.icons, 10), "音乐", !Music.muted, function (t) {
         Music.setMuted(!t), t ? M.play(0, !0) : (_.stop(0), M.stop(0)), Store.set(A, t ? "1" : "0")
     }),  Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "排行榜", function (t) {
-        Sidebar.hide()
+        Sidebar.hide()// 关闭侧边栏
         // 这里添加本月积分榜的逻辑
         var obj = {
             styles: {
