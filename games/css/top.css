@@ -78,7 +78,8 @@
 }
 .fen{
    font-size: 0.65rem;
-   font-weight: bold;
+   font-weight: "bold";
    color: #59c37e; 
+   font-family:"Helvetica Neue","Trebuchet MS",Helvetica,sans-serif,Arial;
 }
 	
