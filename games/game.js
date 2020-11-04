@@ -134,6 +134,11 @@ function attachDownHandler(t, e, i) {
         window.dirty = !0, e.call(t, i, r)
     }
     t.interactive = !0, t.touchstart = function (e, i) {
+        //限制每天可玩3次
+        // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+        // if(playCount >= 3){
+        //     return
+        // }
         ignoreMouseEvents = !0, t.mousedown = void 0, r(e, !1)
     }, t.mousedown = function (t, e) {
         ignoreMouseEvents || r(t, !0)
@@ -279,7 +284,12 @@ function Sidebar() {
             console.log(111);
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
-            // 这是控制 每天玩的次数的
+            //限制每天可玩3次
+            let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+            if(playCount >= 3){
+                alert(999)
+                return
+            }
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
