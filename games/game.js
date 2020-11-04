@@ -1109,7 +1109,7 @@ function Social() {
             b.style.display = t ? 'none' : 'none'
         }), a.style.display = "none", setInterval(function () {
             a.className = "", setTimeout(function () {
-                a.className = "w"
+                // a.className = "w"
 
             })
         }, 18e4), load(""), o()
