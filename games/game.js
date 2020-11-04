@@ -177,6 +177,7 @@ function Sidebar() {
         this.icon = new Sheet(embed("image/menutile.png"), 68, 68), r.icon.x = 25, r.icon.y = window.marginTop ? window.marginTop : 25, stageContainer.addChild(this.icon), o.x = -24, r.icon.ratio = .5 * t, this.content = new ScrollContainer(500, 500), this.content.allowScrollX = !1, r.content.ratio = .5 * t, this.content.y = marginTop / 2 * t, this.addChild(this.content), o._renderWebGL = function (t) {
             this._dirtyTexture && (this._dirtyTexture = !1, PIXI.updateWebGLTexture(this.texture.baseTexture, t.gl)), PIXI.Sprite.prototype._renderWebGL.call(this, t)
         }, this.show = function () {
+            console.log('谁是康佳非');
             stageContainer.addChildAt(window.Sidebar, 0), Tween.clear(stage), Tween.clear(o), Tween.clear(r.icon), this.showing = !0, new Tween(stage, {
                 x: 250 * t
             }, .3), new Tween(o, {
@@ -191,6 +192,7 @@ function Sidebar() {
                 }, .15)
             }), window.toggleOverlay(!0)
         }, this.hide = function () {
+            console.log('康佳非是谁');
             Tween.clear(stage), Tween.clear(o), Tween.clear(r.icon), this.showing = !1, new Tween(stage, {
                 x: 0
             }, .3).call(function () {
