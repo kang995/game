@@ -7,7 +7,7 @@ var obj = {
     },
     typeOf:function(){
         document.getElementById('overlay').style.display = 'none'
-        window.Sidebar.hide()
+        // window.Sidebar.hide()
     }
 }
 obj.tyoe();
