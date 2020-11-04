@@ -11,18 +11,41 @@ html,body{
 #add{
     width: 6.8rem;
     height: 4.3rem;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-color: rgba(26, 30, 41, 1.0);
     position: relative;
     z-index: 100;
     margin: 0 auto;
     top: 25%;
     display: none;
-    border-radius: 20px;
-    padding:30px 10px 10px;
+    border-radius: 0.2rem;
+    border:1px solid #888a90;
 }
-#add span{
+#add header{
+    width: 6.76rem;
+    height: .66rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #393c46;
+    position: relative;
+}
+#add header p{
+    font-size: .26rem;
+    color:#ffffff;
+}
+#add header img{
+    width: .3rem;
+    height: .3rem;
+    position: absolute;
+    right:.3rem;
+}
+#add .contentBox {
+    padding:.34rem .44rem .64rem;
+}
+#add .contentBox span{
     display: block;
-    height: 30px;
-    line-height: 30px;
-    font-size: 0.12rem;
+    line-height: .46rem;
+    font-size: 0.24rem;
+    color:#fff;
 }
