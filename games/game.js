@@ -128,8 +128,6 @@ function preload() {
 }
 // 这是每次拖拽有限会调用这个方法
 function attachDownHandler(t, e, i) {
-    console.log(222)
-   
     function r(i, r) {
         window.dirty = !0, e.call(t, i, r)
     }
@@ -287,7 +285,7 @@ function Sidebar() {
             //限制每天可玩3次
             let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
             if(playCount >= 3){
-                alert(999)
+                alert("每天可玩3次")
                 return
             }
             r.showing && r.hide()
