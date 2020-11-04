@@ -28,9 +28,7 @@ window.onload = function(){
         }
     })
     //数据请求--提交数据
-    window.sendData = function sendData(){
-        console.log("提交数据")
-        // var button = document.getElementById('button');
+    window.sendData = function (){
         var arr = [];
         var playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
         var score = JSON.parse(localStorage.getItem("score"));//本次得分
