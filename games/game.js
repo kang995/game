@@ -126,8 +126,10 @@ function preload() {
             s.push(t)
         }
 }
-
+// 这是每次拖拽有限会调用这个方法
 function attachDownHandler(t, e, i) {
+    console.log(222)
+   
     function r(i, r) {
         window.dirty = !0, e.call(t, i, r)
     }
@@ -251,6 +253,7 @@ function Sidebar() {
             var f = !0;
             h.hitArea = new PIXI.Rectangle(0, 0, 250 * t, 35 * t), attachDownHandler(h, function () {
                 r.content.callback = function () {
+                    console.log(111);
                     a(!f), s(f)
                 }
             }), a(o), r.content.addChild(h), l += 84
@@ -265,16 +268,20 @@ function Sidebar() {
             o.addChild(s), s.lineStyle(1, 0, .2), s.moveTo(0, 40 * t), s.lineTo(250 * t, 40 * t), s.lineStyle(1, 16777215, .2), s.moveTo(0, 41 * t), s.lineTo(250 * t, 41 * t), o.interactive = !0, o.buttonMode = !0, o.defaultCursor = "pointer", o.y = l, o.hitArea = new PIXI.Rectangle(0, 0, 250 * t, 35 * t);
             var i = new Text(i, 200, 35, "#ffffff");
             return o.addChild(i), i.x = 80, i.y = 22, r.content.addChild(o), l += 84, attachDownHandler(o, function () {
+                console.log(111);
                 r.content.callback = function () {
+                    console.log(111);
                     n && n()
                 }
             }), o
         }, this.removeMenuItem = function (t) {
             r.content.removeChild(t) && (l -= 84)
         }, this.addSocialBar = function () {
+            console.log(111);
             var t = new Container;
             // t.addChild(i(Sprite.fromSheet(r.icons, 5), 20, 15, "http://news.frvr.com")), t.addChild(i(Sprite.fromSheet(r.icons, 7), 150, 15, "https://twitter.com/frvrgames")), t.addChild(i(Sprite.fromSheet(r.icons, 0), 280, 15, "https://www.facebook.com/frvrgames")), t.addChild(i(Sprite.fromSheet(r.icons, 2), 410, 15, "https://plus.google.com/+Frvrgames")), t.y = l, r.content.addChild(t), l += 82
         }, this.icon.buttonMode = !0, attachDownHandler(this.icon, function () {
+            console.log(111);
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
             //限制每天可玩3次
@@ -284,8 +291,10 @@ function Sidebar() {
                 return
             }
             r.showing && r.hide()
-        }), resizeCallbacks.push(e)
-    }, Sidebar.prototype = Object.create(Container.prototype), Sidebar.prototype.constructor = Sidebar, window.Sidebar = new Sidebar(ratio)
+        }), 
+        resizeCallbacks.push(e)
+    }, 
+    Sidebar.prototype = Object.create(Container.prototype), Sidebar.prototype.constructor = Sidebar, window.Sidebar = new Sidebar(ratio)
 }
 
 function game() {
@@ -960,6 +969,7 @@ function game() {
     }), Music.setMuted(!("0" !== Store.get(A))), Sidebar.addMenuToggle(Sprite.fromSheet(Sidebar.icons, 10), "音乐", !Music.muted, function (t) {
         Music.setMuted(!t), t ? M.play(0, !0) : (_.stop(0), M.stop(0)), Store.set(A, t ? "1" : "0")
     }),  Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "排行榜", function (t) {
+        Sidebar.hide()
         // 这里添加本月积分榜的逻辑
         var obj = {
             styles: {
@@ -3524,6 +3534,7 @@ var ModelButton = function (t, e, i, r, n, o) {
 };
 ModelButton.prototype = Object.create(Container.prototype), ModelButton.prototype.constructor = ModelButton;
 var PictureButton = function (t, e) {
+    
     Container.call(this);
     var i = new Image;
     i.crossOrigin = "anonymous", i.src = t;
@@ -3562,11 +3573,13 @@ var ModalOverlayContent = function () {
 };
 ModalOverlayContent.prototype = Object.create(Container.prototype), ModalOverlayContent.prototype.constructor = ModalOverlayContent;
 var RateGameModal = function (t, e) {
+    console.log('拖拽的');
     function i(t) {
         o.visible = !(s.visible = 4 == t), a.visible = !0, n.innerHeight = 760, Modal.setHeight(n.innerHeight), Modal.handleResize(), a.y = 560, n.addChildAt(a, 0)
     }
 
     function r(e) {
+        
         var r = new Sheet(t, 136, 130);
         return r.y = 270, r.x = 150 * l + 30, attachDownHandler(r, function () {
             for (var t = 0; 5 > t; t++) h[t].frame = e >= t ? 1 : 0;
