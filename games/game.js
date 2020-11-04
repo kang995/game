@@ -966,6 +966,7 @@ function game() {
 
     }), 
     Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1),'游戏规则', function () {
+        Sidebar.hide();//关闭侧边栏 
         var obj ={
             Rules:{
                 style:'overlay',
@@ -973,7 +974,7 @@ function game() {
             },
             toString(){
                 var div = document.getElementById(this.Rules.styke1)
-                div.style.display = 'block'  
+                div.style.display = 'block' 
                 var div1 = document.getElementById(this.Rules.style)
                 div1.style.display = 'none'
             }
