@@ -965,22 +965,22 @@ function game() {
         obj.toString()
 
     }), 
-    // Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1), function () {
-    //     var obj ={
-    //         Rules:{
-    //             style:'overlay',
-    //             styke1:'add'
-    //         },
-    //         toString(){
-    //             var div = document.getElementById(this.Rules.styke1)
-    //             div.style.display = 'block'  
-    //             var div1 = document.getElementById(this.Rules.style)
-    //             div1.style.display = 'none'
-    //         }
+    Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 1),'游戏规则', function () {
+        var obj ={
+            Rules:{
+                style:'overlay',
+                styke1:'add'
+            },
+            toString(){
+                var div = document.getElementById(this.Rules.styke1)
+                div.style.display = 'block'  
+                var div1 = document.getElementById(this.Rules.style)
+                div1.style.display = 'none'
+            }
             
-    //     }
-    //     obj.toString()
-    // }),
+        }
+        obj.toString()
+    }),
         // Sidebar.addMenuHeader("更多"), Sidebar.addMenuItem(Sprite.fromSheet(Sidebar.icons, 8), "分享", function () {
         //     //Play68.shareFriend();
         // }),
