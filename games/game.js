@@ -7,6 +7,10 @@ function load(t) {
     }(document, "script")
 }
 
+function getJiFen(){
+    return 100;
+}
+
 function SoundPlayer(t) {
     function e() {
         h = !0, a.length && a.shift().send()
@@ -128,6 +132,13 @@ function preload() {
 }
 // 这是每次拖拽有限会调用这个方法
 function attachDownHandler(t, e, i) {
+    //限制每天可玩3次
+    let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+    if(playCount >= 3){
+        return
+    }
+
+
     function r(i, r) {
         window.dirty = !0, e.call(t, i, r)
     }
@@ -283,11 +294,11 @@ function Sidebar() {
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
             //限制每天可玩3次
-            let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-            if(playCount >= 3){
-                alert("每天可玩3次")
-                return
-            }
+            // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+            // if(playCount >= 3){
+            //     alert("每天可玩3次")
+            //     return
+            // }
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
@@ -296,11 +307,13 @@ function Sidebar() {
 }
 
 function game() {
+    //三位数字后添加“,”分割
     function t(t) {
         return t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
 
     function e(e) {
+        console.log(j,'007');
         j.setText("最高分: " + t(e))
     }
 
@@ -673,6 +686,7 @@ function game() {
         // updateShare(H); 
         // Play68.setRankingScoreDesc(H);
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
+        
         var e = this.addButton("再玩一次", function () {
             window.sendData();//游戏结束后提交数据
             M.stop(0), M.play(0, !0), Modal.hide(function () {
@@ -681,8 +695,9 @@ function game() {
 
         }, 7463062),
 
-            r = this.addTextBlock(0, 150, 500);
-        r.y = 145;
+        //结束弹窗内的分数
+        r = this.addTextBlock(0, 100, 500);
+        r.y = 200;
         var n = 0;
         Object.defineProperty(r, "score", {
             get: function () {
@@ -702,9 +717,16 @@ function game() {
                 y: s
             }, .3)      
         });
+        //结束弹窗内的最高分
         var a = this.addTextBlock("最高分: " + t(Store.get(E) || 0), 60, 200);
-        console.log(a)
+        //console.log(a)
         a.y = 310;
+
+        //添加获得积分
+        var ld = this.addTextJiFen("本场获得: " + getJiFen()+"积分",40, 200);
+        console.log(ld)
+        ld.y = 160;
+
         var h = [];
         window.config && window.config.ads && h.push(function (t) {
             t.innerHeight += 165, e.y += 165;
@@ -3551,7 +3573,11 @@ var ModalOverlayContent = function () {
     }, this.addTextBlock = function (t, e, i) {
         var r = new Text(t, i || 200, e || 90, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif');
         return r.anchor.set(.5, 0), r.x = 400, r.y = 50, r.updateText(), this.addChild(r), r
-    }, this.addLead = function (t, e) {
+    },this.addTextJiFen = function (t, e, i) {
+        var r = new Text(t, i || 200, e || 90, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif');
+        return r.anchor.set(.5, 0), r.x = 400, r.y = 50, r.updateText(), this.addChild(r), r
+    },
+     this.addLead = function (t, e) {
         var i = new Text(t, 200, 45, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif', !1, "center");
         return i.anchor.set(.5, 0), i.x = 400, i.y = 140 + (e || 0), i.updateText(), this.addChild(i), i
     };
