@@ -51,8 +51,11 @@ function queryString(nodes){
 function queryStrings(nodes){
     console.log(nodes)
     var str = '';
-    for(var i = 0; i < nodes.length; i++){
-        str += "playCount" + "=" + nodes[i].playCount + "&" + "score" + "=" + nodes[i].score + "&" + "maxScore" + "=" + nodes[i].maxScore + "&";
+    // for(var i = 0; i < nodes.length; i++){
+    //     str += "playCount" + "=" + nodes[i].playCount + "&" + "score" + "=" + nodes[i].score + "&" + "maxScore" + "=" + nodes[i].maxScore + "&";
+    // }
+    for(var key in nodes){
+        str += key + "=" + nodes[key] + "&";
     }
     return str.substring(0, str.length - 1);
 }

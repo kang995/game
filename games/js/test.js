@@ -28,7 +28,7 @@ window.onload = function(){
     })
     //数据请求--提交数据
     window.sendData = function (){  
-        var arr = [];
+        // var arr = [];
         var playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
         var score = JSON.parse(localStorage.getItem("score"));//本次得分
         var maxScore = JSON.parse(localStorage.getItem("score.v1"));//最高得分记录
@@ -39,11 +39,11 @@ window.onload = function(){
             maxScore:maxScore,//最高分
             // Integral:100,//本次获得积分
         }
-        arr.push(obj)
+        // arr.push(obj)
         ajax({
             method:"post",
             url:'http://192.168.44.198:22222/data.json',
-            data:queryStrings(arr),
+            data:queryStrings(obj),
             success:function(res){
                 var res = JSON.parse(res); 
                 console.log(res)
