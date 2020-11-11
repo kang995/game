@@ -47,7 +47,7 @@ function queryString(nodes){
     }
     return str.substring(0, str.length - 1);
 }
-
+//游戏结束后提交数据
 function queryStrings(nodes){
     console.log(nodes)
     var str = '';

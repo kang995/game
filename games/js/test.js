@@ -20,7 +20,6 @@ window.onload = function(){
         success:function(res){
             var res = JSON.parse(res); 
             console.log(res)
-            console.log(111)
             // span.innerHTML = res.data.result[0].catName
         },
         error:{
@@ -28,7 +27,7 @@ window.onload = function(){
         }
     })
     //数据请求--提交数据
-    window.sendData = function (){
+    window.sendData = function (){  
         var arr = [];
         var playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
         var score = JSON.parse(localStorage.getItem("score"));//本次得分
