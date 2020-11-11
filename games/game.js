@@ -294,15 +294,11 @@ function Sidebar() {
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
             //限制每天可玩3次
-<<<<<<< HEAD
-        
-=======
             // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
             // if(playCount >= 3){
             //     alert("每天可玩3次")
             //     return
             // }
->>>>>>> 160f3f43027b54e48cca55f877d3afe3507b2174
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
