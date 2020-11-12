@@ -135,6 +135,7 @@ function attachDownHandler(t, e, i) {
     //限制每天可玩3次
     let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
     if(playCount >= 3){
+        //alert("您已经超过今日游戏次数，请明天再来");
         return
     }
 
@@ -313,9 +314,9 @@ function game() {
     }
 
     function e(e) {
-        console.log(j,'007');
         j.setText("最高分: " + t(e))
     }
+
 
     function i(t) {
         console.log("本次得分：",t)
@@ -685,8 +686,11 @@ function game() {
     var O = function () {
         // updateShare(H); 
         // Play68.setRankingScoreDesc(H);
+
+        let splayCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+        let jCount = 2 - splayCount;
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
-        var e = this.addButton("再玩一次", function () {
+        var e = this.addButton("再玩一次(还剩"+jCount+"次机会)", function () {
             setTimeout(function(){
                 window.sendData();//游戏结束后提交数据
             },500)
@@ -3583,7 +3587,7 @@ var ModalOverlayContent = function () {
         return i.anchor.set(.5, 0), i.x = 400, i.y = 140 + (e || 0), i.updateText(), this.addChild(i), i
     };
     this.addButton = function (t, e, i) {
-        var r = new ModelButton(t, "", e, i, 35, 90);
+        var r = new ModelButton(t, "", e, i, 35, 70);
         return r.y = 370, this.addChild(r)
     }, this.addMiddleButton = function (t, e, i, r) {
         var n = new ModelButton(t, e, i, r, 0, 60);
