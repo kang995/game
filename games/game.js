@@ -690,7 +690,7 @@ function game() {
         let splayCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
         let jCount = 2 - splayCount;
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
-        var e = this.addButton("再玩一次(还剩"+jCount+"次机会)", function () {
+        var e = this.addButton("再玩一次(今天还可以玩"+jCount+"次)", function () {
             setTimeout(function(){
                 window.sendData();//游戏结束后提交数据
             },500)
@@ -701,8 +701,8 @@ function game() {
         }, 7463062),
 
         //结束弹窗内的分数
-        r = this.addTextBlock(0, 100, 500);
-        r.y = 200;
+        r = this.addTextBlock(0, 80, 500);
+        r.y = 210;
         var n = 0;
         Object.defineProperty(r, "score", {
             get: function () {
@@ -3573,7 +3573,7 @@ PictureButton.prototype = Object.create(Container.prototype), PictureButton.prot
 var ModalOverlayContent = function () {
     Container.call(this), this.innerHeight = 800, this.blurClose = !0, this.addHeadline = function (t) {
         console.log('111' + t)
-        var e = new Text(t, 200, 90, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif');
+        var e = new Text(t, 200, 80, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif');
         return e.anchor.set(.5, 0), e.x = 400, e.y = 50, e.updateText(), this.addChild(e), e
     }, this.addTextBlock = function (t, e, i) {
         var r = new Text(t, i || 200, e || 90, "#2c2c2c", '"Helvetica Neue","Trebuchet MS", Helvetica, sans-serif');
@@ -3587,7 +3587,8 @@ var ModalOverlayContent = function () {
         return i.anchor.set(.5, 0), i.x = 400, i.y = 140 + (e || 0), i.updateText(), this.addChild(i), i
     };
     this.addButton = function (t, e, i) {
-        var r = new ModelButton(t, "", e, i, 35, 70);
+        //第五个参数调整按钮中文字的纵向位置
+        var r = new ModelButton(t, "", e, i, 60, 60);
         return r.y = 370, this.addChild(r)
     }, this.addMiddleButton = function (t, e, i, r) {
         var n = new ModelButton(t, e, i, r, 0, 60);
