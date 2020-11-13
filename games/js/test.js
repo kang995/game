@@ -27,17 +27,15 @@ window.onload = function(){
         }
     })
     //数据请求--提交数据
-    window.sendData = function (){  
+    window.sendData = function (val){  
         // var arr = [];
         var playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-        var score = JSON.parse(localStorage.getItem("score"));//本次得分
+        // var score = JSON.parse(localStorage.getItem("score"));//本次得分
         var maxScore = JSON.parse(localStorage.getItem("score.v1"));//最高得分记录
-        console.log(playCount,score,maxScore)
         var obj = {
             playCount:playCount,//游戏次数
-            score:score,//本次得分
+            score:val,//本次得分
             maxScore:maxScore,//最高分
-            // Integral:100,//本次获得积分
         }
         // arr.push(obj)
         ajax({

@@ -303,7 +303,7 @@ function Sidebar() {
     }, 
     Sidebar.prototype = Object.create(Container.prototype), Sidebar.prototype.constructor = Sidebar, window.Sidebar = new Sidebar(ratio)
 }
-
+var scores = null;//定义本次得分全局变量
 function game() {
     //三位数字后添加“,”分割
     function t(t) {
@@ -316,6 +316,7 @@ function game() {
 
 
     function i(t) {
+        scores = t;//接受本次得分
         console.log("本次得分：",t)
         Store.set("score",t)
         var i = parseInt(Store.get(E)) || 0,
@@ -689,7 +690,7 @@ function game() {
         ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
         var e = this.addButton("再玩一次(今天还可以玩"+jCount+"次)", function () {
             setTimeout(function(){
-                window.sendData();//游戏结束后提交数据
+                window.sendData(scores);//游戏结束后提交数据
             },500)
             M.stop(0), M.play(0, !0), Modal.hide(function () {
                 y()
