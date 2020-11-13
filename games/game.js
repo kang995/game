@@ -139,7 +139,6 @@ function attachDownHandler(t, e, i) {
         return
     }
 
-
     function r(i, r) {
         window.dirty = !0, e.call(t, i, r)
     }
@@ -292,12 +291,12 @@ function Sidebar() {
             console.log(111);
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
-            //限制每天可玩3次
-            // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-            // if(playCount >= 3){
-            //     alert("每天可玩3次")
-            //     return
-            // }
+            //限制每天可玩3次(进行提示)
+            let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+            if(playCount >= 3){
+                alert("每天可玩3次")
+                return
+            }
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
@@ -3607,7 +3606,7 @@ var RateGameModal = function (t, e) {
     }
 
     function r(e) {
-        
+
         var r = new Sheet(t, 136, 130);
         return r.y = 270, r.x = 150 * l + 30, attachDownHandler(r, function () {
             for (var t = 0; 5 > t; t++) h[t].frame = e >= t ? 1 : 0;
