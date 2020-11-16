@@ -133,15 +133,19 @@ function preload() {
 // 这是每次拖拽有限会调用这个方法
 function attachDownHandler(t, e, i) {
     //限制每天可玩3次
+
+    function r(i, r) {
+        window.dirty = !0, e.call(t, i, r)
+    }
+
+    console.log("呵呵哒");
     let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
     if(playCount >= 3){
         //alert("您已经超过今日游戏次数，请明天再来");
         return
     }
 
-    function r(i, r) {
-        window.dirty = !0, e.call(t, i, r)
-    }
+
     t.interactive = !0, t.touchstart = function (e, i) {
         //限制每天可玩3次
         // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
@@ -155,6 +159,7 @@ function attachDownHandler(t, e, i) {
 }
 
 function attachUpHandler(t, e, i) {
+    console.log("么么哒");
     function r(i, r) {
         window.dirty = !1, e.call(t, i, r), window.backgroundMusic && window.backgroundMusic.play(0, !0)
     }
@@ -292,11 +297,11 @@ function Sidebar() {
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
             //限制每天可玩3次(进行提示)
-            let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-            if(playCount >= 3){
-                alert("每天可玩3次")
-                return
-            }
+            // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+            // if(playCount >= 3){
+            //     alert("每天可玩3次")
+            //     return
+            // }
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
@@ -1817,6 +1822,15 @@ PIXI.WEBGL_RENDERER = 0, PIXI.CANVAS_RENDERER = 1, PIXI.VERSION = "v2.2.3", PIXI
     }
     return !1
 }, PIXI.InteractionManager.prototype.onTouchMove = function (t) {
+
+
+    let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+    if(playCount >= 3){
+        //alert("您已经超过今日游戏次数，请明天再来");
+        dialog("您已经超过今日游戏次数，请明天再来");
+    }
+
+
     this.dirty && this.rebuildInteractiveGraph();
     var e, i = this.interactionDOMElement.getBoundingClientRect(),
         r = t.changedTouches,
