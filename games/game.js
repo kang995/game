@@ -138,12 +138,11 @@ function attachDownHandler(t, e, i) {
         window.dirty = !0, e.call(t, i, r)
     }
 
-    console.log("呵呵哒");
-    let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-    if(playCount >= 3){
-        //alert("您已经超过今日游戏次数，请明天再来");
-        return
-    }
+    // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+    // if(playCount >= 3){
+    //     //alert("您已经超过今日游戏次数，请明天再来");
+    //     return
+    // }
 
 
     t.interactive = !0, t.touchstart = function (e, i) {
@@ -1828,6 +1827,7 @@ PIXI.WEBGL_RENDERER = 0, PIXI.CANVAS_RENDERER = 1, PIXI.VERSION = "v2.2.3", PIXI
     if(playCount >= 3){
         //alert("您已经超过今日游戏次数，请明天再来");
         dialog("您已经超过今日游戏次数，请明天再来");
+        return;
     }
 
 
