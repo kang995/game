@@ -135,7 +135,7 @@ function attachDownHandler(t, e, i) {
     //限制每天可玩3次
     let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
     if(playCount >= 3){
-        //alert("您已经超过今日游戏次数，请明天再来");
+        // alert("您已经超过今日游戏次数，请明天再来");
         return
     }
 
@@ -284,19 +284,17 @@ function Sidebar() {
         }, this.removeMenuItem = function (t) {
             r.content.removeChild(t) && (l -= 84)
         }, this.addSocialBar = function () {
-            console.log(111);
             var t = new Container;
             // t.addChild(i(Sprite.fromSheet(r.icons, 5), 20, 15, "http://news.frvr.com")), t.addChild(i(Sprite.fromSheet(r.icons, 7), 150, 15, "https://twitter.com/frvrgames")), t.addChild(i(Sprite.fromSheet(r.icons, 0), 280, 15, "https://www.facebook.com/frvrgames")), t.addChild(i(Sprite.fromSheet(r.icons, 2), 410, 15, "https://plus.google.com/+Frvrgames")), t.y = l, r.content.addChild(t), l += 82
         }, this.icon.buttonMode = !0, attachDownHandler(this.icon, function () {
-            console.log(111);
             r.showing ? r.hide() : r.show()
         }), attachDownHandler(stage, function () {
             //限制每天可玩3次(进行提示)
-            let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
-            if(playCount >= 3){
-                alert("每天可玩3次")
-                return
-            }
+            // let playCount = JSON.parse(localStorage.getItem("playCount"));//游戏次数
+            // if(playCount >= 3){
+            //     alert("每天可玩3次")
+            //     return
+            // }
             r.showing && r.hide()
         }), 
         resizeCallbacks.push(e)
