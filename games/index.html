@@ -141,6 +141,22 @@
 			-webkit-animation: w .3s 2;
 			animation: w .3s 2;
 		}
+		.dialog{
+		position:fixed;
+		font-size: 12px;
+		left:50%;
+		top:50%;
+		background-color:rgba(0,0,0,0.7);
+		z-index:9999;
+		padding:5px 10px;
+		color:#fff;
+		border-radius:5px;
+		transform:translate(-50%,-50%);
+		-webkit-transform:translate(-50%,-50%);
+		-moz-transform:translate(-50%,-50%);
+		-ms-transform:translate(-50%,-50%);
+		-o-transform:translate(-50%,-50%);
+	}		
 	</style>
 	<style type="text/css">
 		#player-ad,
@@ -153,7 +169,7 @@
 </head>
 
 <body>
-
+	
 	<canvas id="gameCanvas"></canvas>
 		<div id="overlay">
 			<div class="overlay_a">
@@ -222,7 +238,28 @@
 	</script>
 	<script>
 		window.initGoogle();
-    </script>
+	</script>
+	<script>
+		function dialog(d,time){
+		    if(document.getElementById("dialog")){
+		    	document.getElementById("dialog").innerHTML = d;
+		    	document.getElementById("dialog").style.display = "block";
+		    }else{
+		    	var dialog  = document.createElement("div");
+		    		dialog.id = "dialog";
+		    		dialog.className = "dialog";
+		    		dialog.innerHTML = d;
+		    	document.getElementsByTagName("body")[0].appendChild(dialog);
+		    };
+		    setTimeout(function(){
+		    	var dialog = document.getElementById("dialog");
+		    	if(dialog){
+		    		document.getElementById("dialog").style.display = "none";
+		    	}
+	    	}, time || 3000);
+		}
+		
+	</script>
     <script src="./js/top.js"></script>
 	<script src="game.js"></script>
 	<script src="js/ajax.js"></script>
