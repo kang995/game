@@ -15,12 +15,11 @@ window.onload = function(){
     var span = document.querySelector('.spn')
     ajax({
         method:"get",
-        url:'http://192.168.44.198:22222/data.json',
+        url:'http://192.168.44.156:8080/bigWheel/queryRecord',
         data:{},
         success:function(res){
             var res = JSON.parse(res); 
             console.log(res)
-            // span.innerHTML = res.data.result[0].catName
         },
         error:{
 
